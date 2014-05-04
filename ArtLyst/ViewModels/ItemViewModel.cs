@@ -12,65 +12,65 @@ namespace ArtLyst.ViewModels
 {
     public class ItemViewModel : INotifyPropertyChanged
     {
-        private string _lineOne;
+        private string _title;
         /// <summary>
         /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
         /// </summary>
         /// <returns></returns>
-        public string LineOne
+        public string Title
         {
             get
             {
-                return _lineOne;
+                return _title;
             }
             set
             {
-                if (value != _lineOne)
+                if (value != _title)
                 {
-                    _lineOne = value;
-                    NotifyPropertyChanged("LineOne");
+                    _title = value;
+                    NotifyPropertyChanged("Title");
                 }
             }
         }
 
-        private string _lineTwo;
+        private string _date;
         /// <summary>
         /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
         /// </summary>
         /// <returns></returns>
-        public string LineTwo
+        public string Date
         {
             get
             {
-                return _lineTwo;
+                return _date;
             }
             set
             {
-                if (value != _lineTwo)
+                if (value != _date)
                 {
-                    _lineTwo = value;
-                    NotifyPropertyChanged("LineTwo");
+                    _date = value;
+                    NotifyPropertyChanged("Date");
                 }
             }
         }
 
-        private string _lineThree;
+        private string _imageUrl;
         /// <summary>
         /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
         /// </summary>
         /// <returns></returns>
-        public string LineThree
+        public string ImageUrl
         {
             get
             {
-                return _lineThree;
+                return _imageUrl;
             }
             set
             {
-                if (value != _lineThree)
+                if (value != _imageUrl)
                 {
-                    _lineThree = value;
-                    NotifyPropertyChanged("LineThree");
+                    _imageUrl = value;
+                    NotifyPropertyChanged("ImageUrl");
                 }
             }
         }
