@@ -37,17 +37,21 @@
                     </phone:LongListSelector.ListHeaderTemplate>
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="0,0,0,24" Height="166">
-                                <StackPanel.Background>
+                            <Grid Height="216" Margin="0,0,0,24">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.Background>
                                     <ImageBrush
                                         ImageSource="{Binding ImageUrl}"
                                         Stretch="UniformToFill"/>
-                                </StackPanel.Background>
-                                <StackPanel Background="#88000000">
+                                </Grid.Background>
+                                <StackPanel Grid.Row="1" Background="{StaticResource PhoneBackgroundBrush}" Opacity="0.7">
                                     <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Margin="10,0" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeLarge}" />
-                                    <TextBlock Text="{Binding Date}" TextWrapping="Wrap" Margin="10,-2,10,0" Style="{StaticResource PhoneTextSubtleStyle}" />
+                                    <TextBlock Text="{Binding Date}" TextWrapping="Wrap" Margin="10,0,10,10" Style="{StaticResource PhoneTextSubtleStyle}" />
                                 </StackPanel>
-                            </StackPanel>
+                            </Grid>
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
@@ -76,9 +80,9 @@
                                         ImageSource="{Binding ImageUrl}"
                                         Stretch="UniformToFill"/>
                                 </StackPanel.Background>
-                                <StackPanel Background="#88000000">
+                                <StackPanel Background="{StaticResource PhoneBackgroundBrush}" Opacity="0.7">
                                     <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Margin="10,0" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeLarge}" />
-                                    <TextBlock Text="{Binding Date}" TextWrapping="Wrap" Margin="10,-2,10,0" Style="{StaticResource PhoneTextSubtleStyle}" />
+                                    <TextBlock Text="{Binding Date}" TextWrapping="Wrap" Margin="10,0,10,10" Style="{StaticResource PhoneTextSubtleStyle}" />
                                 </StackPanel>
                             </StackPanel>
                         </DataTemplate>
