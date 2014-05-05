@@ -75,6 +75,91 @@ namespace ArtLyst.ViewModels
             }
         }
 
+        private string _venue;
+        public string Venue
+        {
+            get
+            {
+                return _venue;
+            }
+            set
+            {
+                if (value != _venue)
+                {
+                    _venue = value;
+                    NotifyPropertyChanged("Venue");
+                }
+            }
+        }
+
+        private string _address;
+        public string Address
+        {
+            get
+            {
+                return _address;
+            }
+            set
+            {
+                if (value != _address)
+                {
+                    _address = value;
+                    NotifyPropertyChanged("Address");
+                }
+            }
+        }
+
+        private string _webUrl;
+        public string WebUrl
+        {
+            get
+            {
+                return _webUrl;
+            }
+            set
+            {
+                if (value != _webUrl)
+                {
+                    _webUrl = value;
+                    NotifyPropertyChanged("WebUrl");
+                }
+            }
+        }
+
+        private string _tel;
+        public string Tel
+        {
+            get
+            {
+                return _tel;
+            }
+            set
+            {
+                if (value != _tel)
+                {
+                    _tel = value;
+                    NotifyPropertyChanged("Tel");
+                }
+            }
+        }
+
+        private string _cost;
+        public string Cost
+        {
+            get
+            {
+                return _cost;
+            }
+            set
+            {
+                if (value != _cost)
+                {
+                    _cost = value;
+                    NotifyPropertyChanged("Cost");
+                }
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(String propertyName)
         {

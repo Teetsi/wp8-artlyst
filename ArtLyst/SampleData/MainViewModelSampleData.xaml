@@ -5,11 +5,11 @@
     SampleProperty="Sample Text Property Value">
 
     <vm:MainViewModel.Items>
-        <vm:ItemViewModel Title="Polke Richter - Richter Polke" Date="25 Apr - 07 Jul" ImageUrl="http://artlyst.com/img/events/12896.jpg"/>
-        <vm:ItemViewModel Title="Henri Matisse: The Cut Outs" Date="17 Apr - 07 Sep" ImageUrl="http://artlyst.com/img/events/8518.jpg"/>
-        <vm:ItemViewModel Title="Julian Schnabel" Date="25 Apr - 27 Jul" ImageUrl="http://artlyst.com/img/events/12909.jpg"/>
-        <vm:ItemViewModel Title="Andreas Gursky Landscapes" Date="25 Apr - 07 Jul" ImageUrl="http://artlyst.com/img/events/12446.jpg"/>
-        <vm:ItemViewModel Title="Alan Davie" Date="25 Apr - 07 Jul" ImageUrl="http://artlyst.com/img/events/12805.jpg"/>
+        <vm:ItemViewModel Title="Polke Richter - Richter Polke" Date="25 Apr - 07 Jul" Venue="http://artlyst.com/img/events/12896.jpg"/>
+        <vm:ItemViewModel Title="Henri Matisse: The Cut Outs" Date="17 Apr - 07 Sep" Venue="http://artlyst.com/img/events/8518.jpg"/>
+        <vm:ItemViewModel Title="Julian Schnabel" Date="25 Apr - 27 Jul" Venue="http://artlyst.com/img/events/12909.jpg"/>
+        <vm:ItemViewModel Title="Andreas Gursky Landscapes" Date="25 Apr - 07 Jul" Venue="http://artlyst.com/img/events/12446.jpg"/>
+        <vm:ItemViewModel Title="Alan Davie" Date="25 Apr - 07 Jul" Venue="http://artlyst.com/img/events/12805.jpg"/>
     </vm:MainViewModel.Items>
 
 </vm:MainViewModel>
