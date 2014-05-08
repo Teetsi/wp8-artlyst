@@ -37,7 +37,7 @@
                     </phone:LongListSelector.ListHeaderTemplate>
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
-                            <Grid Height="216" Margin="0,0,0,24">
+                            <Grid Height="216" Margin="0,0,0,24" Tap="Grid_Tap">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"></RowDefinition>
                                     <RowDefinition Height="Auto"></RowDefinition>

@@ -14,16 +14,31 @@
     d:DataContext="{d:DesignData SampleData/ItemViewModelSampleData.xaml}"
     shell:SystemTray.IsVisible="True">
 
-    <StackPanel>
-        <TextBlock TextWrapping="Wrap" Text="{Binding Title}" Style="{StaticResource PhoneTextTitle1Style}"/>
-        <Image Source="{Binding ImageUrl}"/>
-        <TextBlock TextWrapping="Wrap" Text="{Binding Description}" Style="{StaticResource PhoneTextBlockBase}"/>
-        <TextBlock Text="{Binding Date}"/>
-        <TextBlock Text="{Binding Venue}"/>
-        <TextBlock Text="{Binding Address}"/>
-        <TextBlock Text="{Binding Tel}"/>
-        <TextBlock Text="{Binding WebUrl}"/>
-        <TextBlock Text="{Binding Cost}"/>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="0,0,0,12" Grid.Row="0">
+            <TextBlock TextWrapping="Wrap" Text="{Binding Title}" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <StackPanel Margin="12">
+                <TextBlock Text="{Binding Date}"/>
+                <TextBlock Text="{Binding Venue}"/>
+                <TextBlock Text="{Binding Cost}"/>
+            </StackPanel>
+        </StackPanel>
 
+        <Image Source="{Binding ImageUrl}" Grid.Row="1"/>
+
+        <StackPanel Grid.Row="2">
+            <TextBlock TextWrapping="Wrap" Text="{Binding Description}" Style="{StaticResource PhoneTextBlockBase}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Margin="12">
+            <TextBlock Text="{Binding Address}"/>
+            <TextBlock Text="{Binding Tel}"/>
+        </StackPanel>
+    </Grid>
 </phone:PhoneApplicationPage>

@@ -29,5 +29,11 @@ namespace ArtLyst
                 App.ViewModel.LoadData();
             }
         }
+
+        private void Grid_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(
+                new Uri("/ItemPage.xaml", UriKind.Relative));
+        }
     }
 }

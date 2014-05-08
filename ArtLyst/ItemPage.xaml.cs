@@ -16,5 +16,13 @@ namespace ArtLyst
         {
             InitializeComponent();
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (DataContext == null)
+            {
+                DataContext = App.ViewModel.Items[0];
+            }
+        }
     }
 }
