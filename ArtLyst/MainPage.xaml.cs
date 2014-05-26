@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using ArtLyst.ViewModels;
 
 namespace ArtLyst
 {
@@ -32,8 +33,11 @@ namespace ArtLyst
 
         private void Grid_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
+            var selected = (FrameworkElement)sender;
+            var item = (ItemViewModel)selected.DataContext;
+            var index = App.ViewModel.Items.IndexOf(item);
             NavigationService.Navigate(
-                new Uri("/ItemPage.xaml", UriKind.Relative));
+                new Uri("/ItemPage.xaml?selected=" + index, UriKind.Relative));
         }
     }
 }

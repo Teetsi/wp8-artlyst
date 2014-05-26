@@ -13,10 +13,6 @@ namespace ArtLyst.ViewModels
     public class ItemViewModel : INotifyPropertyChanged
     {
         private string _title;
-        /// <summary>
-        /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
-        /// </summary>
-        /// <returns></returns>
         public string Title
         {
             get

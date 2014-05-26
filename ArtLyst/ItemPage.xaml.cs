@@ -21,7 +21,17 @@ namespace ArtLyst
         {
             if (DataContext == null)
             {
-                DataContext = App.ViewModel.Items[0];
+                string selectedIndex = "";
+                int index;
+                if (NavigationContext.QueryString.TryGetValue("selected", out selectedIndex))
+                {
+                    index = int.Parse(selectedIndex);
+                    DataContext = App.ViewModel.Items[index];
+                }
+                else
+                {
+                    DataContext = App.ViewModel.Items[0];
+                }
             }
         }
     }

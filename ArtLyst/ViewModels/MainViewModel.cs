@@ -2,6 +2,11 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using ArtLyst.Resources;
+using System.Xml.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Net;
 
 namespace ArtLyst.ViewModels
 {
@@ -58,25 +63,23 @@ namespace ArtLyst.ViewModels
         /// <summary>
         /// Creates and adds a few ItemViewModel objects into the Items collection.
         /// </summary>
-        public void LoadData()
+        public async void LoadData()
         {
-            // Sample data; replace with real data
-            this.Items.Add(new ItemViewModel() {
-                Title = "Polke Richter - Richter Polke",
-                Date = "25 Apr - 07 Jul",
-                ImageUrl = "http://artlyst.com/img/events/12896.jpg",
-                Venue="Christie's (King Street)",
-                Address="8 King Street, St. James's , London , SW1Y 6QT. UK",
-                WebUrl="http://www.christies.com",
-                Tel="020 7839 9060",
-                Cost="free",
-                Description="London – On 24 April 2014 Christie’s Mayfair will open Polke/Richter-Richter/Polke, celebrating two giants of painting: Gerhard Richter (b.1932) and Sigmar Polke (1941-2010). The show brings together 65 works from 30 collections to create the artists’ first joint show in almost 50 years, since their now legendary 1966 exhibition at Galerie h in Hanover. This show was a declaration of their intention to resurrect painting, a medium presumed dead, by deconstructing it and opening up new possibilities. Christie’s Polke/Richter-Richter/Polke reunites two of the works from this show (Flemish Crown, by Richter and Bavarian by Polke, illustrated below), as well as others from the period, and then surveys the artists’ careers since then, until Polke’s death."
-            });
-            this.Items.Add(new ItemViewModel() { Title = "Henri Matisse: The Cut Outs", Date = "25 Apr - 07 Jul", ImageUrl = "http://artlyst.com/img/events/8518.jpg" });
-            this.Items.Add(new ItemViewModel() { Title = "Julian Schnabel", Date = "25 Apr - 07 Jul", ImageUrl = "http://artlyst.com/img/events/12909.jpg" });
-            this.Items.Add(new ItemViewModel() { Title = "Andreas Gursky Landscapes", Date = "25 Apr - 07 Jul", ImageUrl = "http://artlyst.com/img/events/12446.jpg" });
-            this.Items.Add(new ItemViewModel() { Title = "Alan Davie", Date = "25 Apr - 07 Jul", ImageUrl = "http://artlyst.com/img/events/12805.jpg" });
+            var url = "http://freshart-static.cloudapp.net/recommended.xml";
+            var client = new WebClient();
+            string response = await client.DownloadStringTaskAsync(new Uri(url));
 
+            var doc = XDocument.Parse(response);
+            var list = from query in doc.Descendants("exhibition")
+                       select new ItemViewModel
+                       {
+                           Title = (string)query.Element("title"),
+                           ImageUrl = (string)query.Element("preview-image"),
+                           Venue = (string)query.Element("venue"),
+                           Address = (string)query.Element("address")
+                       };
+
+            list.ToList().ForEach(this.Items.Add);
             this.IsDataLoaded = true;
         }
 
