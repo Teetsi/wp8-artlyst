@@ -7,6 +7,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Net;
+using System.Windows;
 
 namespace ArtLyst.ViewModels
 {
@@ -67,20 +68,29 @@ namespace ArtLyst.ViewModels
         {
             var url = "http://freshart-static.cloudapp.net/recommended.xml";
             var client = new WebClient();
-            string response = await client.DownloadStringTaskAsync(new Uri(url));
 
-            var doc = XDocument.Parse(response);
-            var list = from query in doc.Descendants("exhibition")
-                       select new ItemViewModel
-                       {
-                           Title = (string)query.Element("title"),
-                           ImageUrl = (string)query.Element("preview-image"),
-                           Venue = (string)query.Element("venue"),
-                           Address = (string)query.Element("address")
-                       };
+            try
+            {
+                string response = await client.DownloadStringTaskAsync(new Uri(url));
+                var doc = XDocument.Parse(response);
+                var list = from query in doc.Descendants("exhibition")
+                           select new ItemViewModel
+                           {
+                               Title = (string)query.Element("title"),
+                               ImageUrl = (string)query.Element("preview-image"),
+                               Venue = (string)query.Element("venue"),
+                               Address = (string)query.Element("address")
+                           };
 
-            list.ToList().ForEach(this.Items.Add);
-            this.IsDataLoaded = true;
+                list.ToList().ForEach(this.Items.Add);
+                this.IsDataLoaded = true;
+            }
+            catch
+            {
+                MessageBox.Show(messageBoxText: "Cannot retrieve exhibition list",
+                    caption: "Error",
+                    button: MessageBoxButton.OK);
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
